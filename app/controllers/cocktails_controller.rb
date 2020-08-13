@@ -5,7 +5,12 @@ class CocktailsController < ApplicationController
   end
 
   def create
-    @cocktail
+    @cocktail = Cocktail.new(cocktail_params)
+    if @cocktail.save
+      redirect_to @cocktail
+    else
+      render :new
+    end
   end
 
   def new
@@ -22,6 +27,6 @@ class CocktailsController < ApplicationController
   end
 
   def cocktail_params
-    params(:plant).permit(:name)
+    params.require(:cocktail).permit(:name)
   end
 end

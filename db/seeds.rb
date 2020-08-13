@@ -17,4 +17,12 @@ Ingredient.create(name: "lime")
 Ingredient.create(name: "triple sec")
 Ingredient.create(name: "sugar syrup")
 
+puts "Cleaning database..."
+Cocktail.destroy_all
+
+puts "Creating cocktails..."
+Cocktail.create(name: "Margarita")
+Cocktail.create(name: "Daiquiri")
+Cocktail.create(name: "Old Fashioned")
+
 puts "Finished!"
